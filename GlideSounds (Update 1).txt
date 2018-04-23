@@ -1,0 +1,19 @@
+
+PROPOSED SOUNDS:
+
+Bomb Block explosion (and other special blocks) - 
+
+
+IN SOUND MANAGER: 
+
+Win Theme -
+Lose Theme - 
+Interaction Sound (Menu button clicks?) -
+Clear Line Sound - 
+Drop Sound (Insert block?) - 
+
+
+MUSIC:
+
+Game Music - 
+
