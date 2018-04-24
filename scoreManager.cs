@@ -33,20 +33,16 @@ public class scoreManager : Monobehavior
                 GameModeHiScore = Managers.Game.stats.PowersHiScore;
                 CurrentGameMode = 3;
             }
+            else
+            {
+                GameModeHiScore = 0;
+            }
         }
         
         private void Awake()
         {
-            if (GameModeHiScore != 0)
-            {
-                checkCurrentGameMode();
-                //Managers.UI.inGameUI.UpdateScoreUI(); // Dipslay score on UI if used
-            }
-            else
-            {
-                GameModeHiScore = 0;
-                //Managers.UI.inGameUI.UpdateScoreUI(); // Dipslay score on UI if used
-            }
+            checkCurrentGameMode();
+            //Managers.UI.inGameUI.UpdateScoreUI(); // Dipslay score on UI if used
         }
 
         public void UpdateScore(int UpdateValue)
@@ -104,11 +100,11 @@ public class scoreManager : Monobehavior
             }
         }
 
-        public void WipeScore()
+        public void ResetScore()
         {
             CurrentScore = 0;
             checkCurrentGameMode();
-            Managers.UI.inGameUI.UpdateScoreUI();
+            //Managers.UI.inGameUI.UpdateScoreUI(); Update UI if used
         }
 
     #endregion SCORE

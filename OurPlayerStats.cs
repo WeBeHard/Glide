@@ -3,7 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
+//
+//obsolete, use Unity pref
+//
+
 public class OurPlayerStats : ScriptableObject {
+
     public int CumulativeScore = 0;
     public int TotalGamesPlayed = 0;
 
@@ -21,55 +26,6 @@ public class OurPlayerStats : ScriptableObject {
     public int PowersTotalScore = 0;
     public double PowersAvgScore = 0;
     public int PowersTotalGamesPlayed = 0;
-
-    void UpdateStats(int currentMode, int currentGameScore)
-    {
-        CumulativeScore += gameScore;
-        TotalGamesPlayed++;
-
-        if (currentMode = 1) {
-            UpdateClassic(currentGameScore);
-        }
-        else if (currentMode = 2) {
-            UpdateTimeAttack(currentGameScore);
-        }
-        else if (currentMode = 3) {
-            UpdatePowers(currentGameScore);
-        }
-    }
-
-    void UpdateClassic(int score)
-    {
-        if (ClassicHiScore < score)
-        {
-            ClassicHiScore = score;
-        }
-        ClassicTotalScore += score;
-        ClassicTotalGamesPlayed++;
-        ClassicAvgScore = ClassicTotalScore / ClassicTotalGamesPlayed;
-    }
-
-    void UpdateTimeAttack(int score)
-    {
-        if (TimeAttackHiScore < score)
-        {
-            TimeAttackHiScore = score;
-        }
-        TimeAttackTotalScore += score;
-        TimeAttackTotalGamesPlayed++;
-        TimeAttackAvgScore = TimeAttackTotalScore / TimeAttackTotalGamesPlayed;
-    }
-
-    void UpdatePowers(int score)
-    {
-        if (PowersHiScore < score)
-        {
-            PowersHiScore = score;
-        }
-        PowersTotalScore += score;
-        PowersTotalGamesPlayed++;
-        PowersAvgScore = PowersTotalScore / PowersTotalGamesPlayed++;
-    }
 
     void WipeStats()
     {
