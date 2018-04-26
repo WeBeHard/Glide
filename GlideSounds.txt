@@ -1,6 +1,0 @@
-
-Insert Block - 
-Clear Line - 
-Menu button clicks - 
-Bomb Block explosion - 
-...
