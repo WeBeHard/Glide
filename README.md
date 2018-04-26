@@ -1,2 +1,0 @@
-# Glide
-Software Engineering Project
