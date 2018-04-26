@@ -1,0 +1,16 @@
+﻿<Properties StartupItem="Assembly-CSharp.csproj">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\OurPlayerStats.cs">
+    <Files>
+      <File FileName="Assets\Scripts\MainMenu.cs" Line="25" Column="3" />
+      <File FileName="Assets\Scripts\Fading.cs" Line="33" Column="37" />
+      <File FileName="Assets\Scripts\ClickSound.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\TitleScreen.cs" Line="23" Column="1" />
+      <File FileName="Assets\Scripts\OurPlayerStats.cs" Line="48" Column="45" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>
