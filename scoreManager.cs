@@ -10,27 +10,24 @@ public class scoreManager : Monobehavior
 
     #region SCORE 
 
-    // Game = game manager
-    // stats = OurPlayerStats (replaced by Unity pref file)
-
-        private void checkCurrentGameMode()
+    private void checkCurrentGameMode()
         {
             Scene currentScene = SceneManager.GetActiveScene();
             string sceneName = currentScene.name;
 
             if (sceneName == "ClassicMode")
             {
-                GameModeHiScore = Managers.Game.stats.ClassicHiScore;
+                GameModeHiScore =  PlayerPrefs.GetInt("ClassicHighScore");
                 CurrentGameMode = 1;
             }
             else if (sceneName == "TimeAttack")
             {
-                GameModeHiScore = Managers.Game.stats.TimeAttackHiScore;
+                GameModeHiScore = PlayerPrefs.GetInt("TimeAttackHighScore");
                 CurrentGameMode = 2;
             }
             else if (sceneName == "PowersMode")
             {
-                GameModeHiScore = Managers.Game.stats.PowersHiScore;
+                GameModeHiScore = PlayerPrefs.GetInt("PowersHighScore");
                 CurrentGameMode = 3;
             }
             else
@@ -50,7 +47,8 @@ public class scoreManager : Monobehavior
             CurrentScore += UpdateValue;
             CheckGameModeHiScore();
             //Managers.UI.inGameUI.UpdateScoreUI(); // Dipslay score on UI if used
-            Managers.Game.stats.CumulativeScore += UpdateValue;
+            int newCumulativeScore = (PlayerPrefs.GetInt("CumulativeScore")) + UpdateValue;
+            PlayerPrefs.SetInt("CumulativeScore", newCumulativeScore);
         }
 
         public void CheckGameModeHiScore()
@@ -63,40 +61,56 @@ public class scoreManager : Monobehavior
         
         void UpdateStats()
         {
-            Managers.Game.stats.TotalGamesPlayed++;
+            int temp0 = (PlayerPrefs.GetInt("TotalGamesPlayed")) + 1;
+            PlayerPrefs.SetInt("TotalGamesPlayed", temp0);
 
             if (CurrentGameMode = 1)
             {
                 if (GameModeHiScore <= CurrentScore)
                 {
-                    Managers.Game.stats.ClassicHiScore = CurrentScore;
+                    PlayerPrefs.SetInt("ClassicHighScore", CurrentScore);
                 }
-                Managers.Game.stats.ClassicTotalScore += CurrentScore;
-                Managers.Game.stats.ClassicTotalGamesPlayed++;
-                Managers.Game.stats.ClassicAvgScore =
-               (Managers.Game.stats.ClassicTotalScore / Managers.Game.stats.ClassicTotalGamesPlayed);
+                int temp1 = (PlayerPrefs.GetInt("ClassicTotalScore")) + CurrentScore;
+                             PlayerPrefs.SetInt("ClassicTotalScore", temp1);
+
+                int temp2 = (PlayerPrefs.GetInt("ClassicTotalGamesPlayed")) + 1;
+                             PlayerPrefs.SetInt("ClassicTotalGamesPlayed", temp2);
+
+                double avg = (temp1/temp2);
+                int temp3 = Convert.ToInt32(avg);
+                             PlayerPrefs.SetInt("ClassicAvgScore", temp3);
             }
             else if (CurrentGameMode = 2)
             {
                 if (GameModeHiScore <= CurrentScore)
                 {
-                    Managers.Game.stats.TimeAttackHiScore = CurrentScore;
+                    PlayerPrefs.SetInt("TimeAttackHighScore", CurrentScore);
                 }
-                Managers.Game.stats.TimeAttackTotalScore += CurrentScore;
-                Managers.Game.stats.TimeAttackTotalGamesPlayed++;
-                Managers.Game.stats.TimeAttackAvgScore =
-               (Managers.Game.stats.TimeAttackTotalScore / Managers.Game.stats.TimeAttackTotalGamesPlayed);
+                int temp1 = (PlayerPrefs.GetInt("TimeAttackTotalScore")) + CurrentScore;
+                             PlayerPrefs.SetInt("TimeAttackTotalScore", temp1);
+
+                int temp2 = (PlayerPrefs.GetInt("TimeAttackTotalGamesPlayed")) + 1;
+                             PlayerPrefs.SetInt("TimeAttackTotalGamesPlayed", temp2);
+
+                double avg = (temp1 / temp2);
+                int temp3 = Convert.ToInt32(avg);
+                             PlayerPrefs.SetInt("TimeAttackAvgScore", temp3);
             }
             else if (CurrentGameMode = 3)
             {
                 if (GameModeHiScore <= CurrentScore)
                 {
-                    Managers.Game.stats.PowersHiScore = CurrentScore;
+                    PlayerPrefs.SetInt("PowersHighScore", CurrentScore);
                 }
-                Managers.Game.stats.PowersTotalScore += CurrentScore;
-                Managers.Game.stats.PowersTotalGamesPlayed++;
-                Managers.Game.stats.PowersAvgScore =
-               (Managers.Game.stats.PowersTotalScore/ Managers.Game.stats.PowersTotalGamesPlayed);
+                int temp1 = (PlayerPrefs.GetInt("PowersTotalScore")) + CurrentScore;
+                             PlayerPrefs.SetInt("PowersTotalScore", temp1);
+
+                int temp2 = (PlayerPrefs.GetInt("PowersTotalGamesPlayed")) + 1;
+                             PlayerPrefs.SetInt("PowersTotalGamesPlayed", temp2);
+
+                double avg = (temp1 / temp2);
+                int temp3 = Convert.ToInt32(avg);
+                             PlayerPrefs.SetInt("PowersAvgScore", temp3);
             }
         }
 
